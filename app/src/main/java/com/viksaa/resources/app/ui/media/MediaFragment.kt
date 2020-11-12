@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -22,7 +23,7 @@ class MediaFragment : Fragment() {
         mediaViewModel =
             ViewModelProvider(this).get(MediaViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_media, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
+        val textView = root.findViewById<AppCompatTextView>(R.id.text_notifications)
         mediaViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })

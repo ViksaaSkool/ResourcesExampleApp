@@ -11,7 +11,7 @@
     <item name="scale_from" type="dimen" format="float">0.0</item>
     <item name="scale_to" type="dimen" format="float">1.0</item>
 
-    <item name="fade_duration" type="dimen" format="integer">2000</item>
+    <item name="fade_duration" type="dimen" format="integer">3500</item>
     <item name="scale_duration" type="dimen" format="integer">2000</item>
 
 </resources>

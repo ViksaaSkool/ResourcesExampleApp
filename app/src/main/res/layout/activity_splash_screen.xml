@@ -29,6 +29,7 @@
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="@dimen/title_size"
+        android:fontFamily="@font/stay_happy_font"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/splash_animation_view"

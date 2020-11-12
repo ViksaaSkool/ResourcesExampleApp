@@ -3,4 +3,12 @@
     <string name="title_text">Text</string>
     <string name="title_media">Media</string>
     <string name="title_other">Other</string>
+
+    <string-array name="button_messages_text">
+        <item>Ouch</item>
+        <item>Stop clicking</item>
+        <item>Yes, I\'m a button</item>
+        <item>How does this make you feel?</item>
+    </string-array>
+
 </resources>

@@ -1,4 +1,4 @@
-package com.viksaa.resources.app.ui.home
+package com.viksaa.resources.app.ui.media
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.viksaa.resources.app.R
 
-class HomeFragment : Fragment() {
+class MediaFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var mediaViewModel: MediaViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+        mediaViewModel =
+            ViewModelProvider(this).get(MediaViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_media, container, false)
+        val textView: TextView = root.findViewById(R.id.text_notifications)
+        mediaViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

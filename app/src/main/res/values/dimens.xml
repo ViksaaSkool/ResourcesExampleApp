@@ -2,4 +2,16 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="animation_size">300dp</dimen>
+    <dimen name="title_size">32sp</dimen>
+    <dimen name="title_margin">16dp</dimen>
+    <dimen name="text_size">16sp</dimen>
+
+    <item name="scale_from" type="dimen" format="float">0.0</item>
+    <item name="scale_to" type="dimen" format="float">1.0</item>
+
+    <item name="fade_duration" type="dimen" format="integer">2000</item>
+    <item name="scale_duration" type="dimen" format="integer">2000</item>
+
 </resources>

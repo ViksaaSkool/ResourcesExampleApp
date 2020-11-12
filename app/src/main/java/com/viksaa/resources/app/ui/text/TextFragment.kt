@@ -1,4 +1,4 @@
-package com.viksaa.resources.app.ui.dashboard
+package com.viksaa.resources.app.ui.text
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.viksaa.resources.app.R
 
-class DashboardFragment : Fragment() {
+class TextFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var textViewModel: TextViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        textViewModel =
+            ViewModelProvider(this).get(TextViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_text, container, false)
+        val textView: TextView = root.findViewById(R.id.text_home)
+        textViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

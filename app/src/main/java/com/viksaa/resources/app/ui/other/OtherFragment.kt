@@ -22,10 +22,10 @@ class OtherFragment : Fragment() {
         otherViewModel =
             ViewModelProvider(this).get(OtherViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_other, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
+        /*val textView: TextView = root.findViewById(R.id.text_dashboard)
         otherViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
-        })
+        })*/
         return root
     }
 }

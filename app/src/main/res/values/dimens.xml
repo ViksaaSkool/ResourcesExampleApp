@@ -7,6 +7,11 @@
     <dimen name="title_size">32sp</dimen>
     <dimen name="title_margin">16dp</dimen>
     <dimen name="text_size">16sp</dimen>
+    <dimen name="card_text_size">18sp</dimen>
+    <dimen name="text_padding">8dp</dimen>
+    <dimen name="card_margin">20dp</dimen>
+    <dimen name="line_size">1dp</dimen>
+    <dimen name="other_elements_padding">50dp</dimen>
 
     <item name="scale_from" type="dimen" format="float">0.0</item>
     <item name="scale_to" type="dimen" format="float">1.0</item>

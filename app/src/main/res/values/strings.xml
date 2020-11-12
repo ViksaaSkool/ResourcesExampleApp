@@ -4,11 +4,26 @@
     <string name="title_media">Media</string>
     <string name="title_other">Other</string>
 
+    <string name="en_text">EN</string>
+    <string name="mk_text">MK</string>
+
+    <string name="light_text">Light mode</string>
+    <string name="dark_text">Dark mode</string>
+
     <string-array name="button_messages_text">
         <item>Ouch</item>
         <item>Stop clicking</item>
         <item>Yes, I\'m a button</item>
         <item>How does this make you feel?</item>
     </string-array>
+
+    <string name="button_text">Just Another Button</string>
+    <string name="edit_hint_text">Write something stupid…</string>
+    <string name="toggle_text">Change theme</string>
+
+    <string name="toast_text">Button says: %1$s, that was message no: %2$d</string>
+    <string name="font_text">Font %1$d</string>
+
+    <string name="generic_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
 
 </resources>

@@ -10,6 +10,10 @@
     <string name="light_text">Light mode</string>
     <string name="dark_text">Dark mode</string>
 
+    <string name="sound_text">Sound</string>
+    <string name="video_text">Video</string>
+    <string name="image_text">Image</string>
+
     <string-array name="button_messages_text">
         <item>Ouch</item>
         <item>Stop clicking</item>

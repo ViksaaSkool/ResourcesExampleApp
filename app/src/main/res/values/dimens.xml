@@ -12,6 +12,7 @@
     <dimen name="card_margin">20dp</dimen>
     <dimen name="line_size">1dp</dimen>
     <dimen name="other_elements_padding">50dp</dimen>
+    <dimen name="video_size">300dp</dimen>
 
     <item name="scale_from" type="dimen" format="float">0.0</item>
     <item name="scale_to" type="dimen" format="float">1.0</item>

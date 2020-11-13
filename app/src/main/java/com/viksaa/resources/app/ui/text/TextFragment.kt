@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.viksaa.resources.app.Constants.MK
 import com.viksaa.resources.app.R
 import com.viksaa.resources.app.ui.text.adapter.FontsRecyclerViewAdapter
 import java.util.*
@@ -45,7 +46,7 @@ class TextFragment : Fragment() {
     private fun setLanguageIndicator(view: View){
         val enText = view.findViewById<AppCompatTextView>(R.id.en_text)
         val mkText = view.findViewById<AppCompatTextView>(R.id.mk_text)
-        if(Locale.getDefault().language == "mk"){
+        if(Locale.getDefault().language == MK){
             mkText.isSelected = true
             enText.isSelected = false
         }else{

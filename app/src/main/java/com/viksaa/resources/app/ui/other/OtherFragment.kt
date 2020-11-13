@@ -22,10 +22,22 @@ class OtherFragment : Fragment() {
         otherViewModel =
             ViewModelProvider(this).get(OtherViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_other, container, false)
-        /*val textView: TextView = root.findViewById(R.id.text_dashboard)
-        otherViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })*/
+
         return root
     }
+
+
+    /*fun setAppearanceTheme(theme: Int) {
+        when (theme) {
+            AppAppearance.LIGHT -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+            AppAppearance.DARK -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            }
+            AppAppearance.FOLLOW_SYSTEM -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+            }
+        }
+    }*/
 }

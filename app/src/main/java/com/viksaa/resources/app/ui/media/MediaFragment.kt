@@ -31,7 +31,6 @@ class MediaFragment : Fragment(){
         return root
     }
 
-
     private fun setVideo(view: View){
         val videoView = view.findViewById<VideoView>(R.id.video_view)
         val video = Uri.parse("android.resource://" + requireContext().packageName + "/" + R.raw.video_funny)

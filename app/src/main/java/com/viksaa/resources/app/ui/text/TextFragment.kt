@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.viksaa.resources.app.R
 import com.viksaa.resources.app.ui.text.adapter.FontsRecyclerViewAdapter
+import java.util.*
 
 class TextFragment : Fragment() {
 
@@ -27,11 +28,7 @@ class TextFragment : Fragment() {
             ViewModelProvider(this).get(TextViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_text, container, false)
         setFontsList(root)
-
-        /*val textView: TextView = root.findViewById(R.id.text_home)
-        textViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })*/
+        setLanguageIndicator(root)
         return root
     }
 
@@ -43,5 +40,17 @@ class TextFragment : Fragment() {
         fontsRecyclerView.itemAnimator = DefaultItemAnimator()
         fontsRecyclerView.adapter = fontsAdapter
         fontsAdapter.notifyDataSetChanged()
+    }
+
+    private fun setLanguageIndicator(view: View){
+        val enText = view.findViewById<AppCompatTextView>(R.id.en_text)
+        val mkText = view.findViewById<AppCompatTextView>(R.id.mk_text)
+        if(Locale.getDefault().language == "mk"){
+            mkText.isSelected = true
+            enText.isSelected = false
+        }else{
+            mkText.isSelected = false
+            enText.isSelected = true
+        }
     }
 }

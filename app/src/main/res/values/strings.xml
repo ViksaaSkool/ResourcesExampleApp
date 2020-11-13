@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Resources Example App</string>
-    <string name="title_text">Text</string>
-    <string name="title_media">Media</string>
+    <string name="title_text" translatable="false">Text</string>
+    <string name="title_media" translatable="false">Media</string>
     <string name="title_other">Other</string>
 
     <string name="en_text">EN</string>

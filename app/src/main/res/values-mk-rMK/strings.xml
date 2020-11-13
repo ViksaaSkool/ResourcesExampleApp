@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Resources Example App</string>
+    <string name="title_text">Текст</string>
+    <string name="title_media">Медиа</string>
+    <string name="title_other">Друго</string>
+    <string name="light_text">Светол режим</string>
+    <string name="dark_text">Темен Режим</string>
+    <string name="sound_text">Звук</string>
+    <string name="video_text">Видео</string>
+    <string name="image_text">Слики</string>
+    <string name="button_text">Уште едно копче</string>
+    <string name="edit_hint_text">Напиши нешто глупаво</string>
+    <string name="toggle_text">Смени тема</string>
+    <string name="toast_text">Копчето вели: %1$s, тоа беше порака број: %2$d</string>
+    <string name="font_text">Фонт %1$d</string>
+    <string-array name="button_messages_text">
+        <item>Ауч</item>
+        <item>Престани да кликаш</item>
+        <item>Да, јас сум копче</item>
+        <item>Како се чувствуваш?</item>
+    </string-array>
+    <string name="generic_text">Lorem Ipsum е едноставно лажен текст на индустријата за печатење и формулација. Лорем Ипсум е стандарден атарот на индустријата уште од 1500-тите, кога непознат печатач зеде галија од типот и ја измеша за да направи книга со примероци од типот. Преживеа не само пет века, туку и скок кон електронска буква, останувајќи во суштина непроменет. Тоа беше популаризирано во 60-тите години на 20 век со објавување на листови Letraset кои содржат пасуси Lorem Ipsum, и неодамна со софтвер за десктоп издаваштво како Aldus PageMaker вклучувајќи верзии на Lorem Ipsum.</string>
 </resources>

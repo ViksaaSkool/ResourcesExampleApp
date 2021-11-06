@@ -7,50 +7,49 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.MediaController
-import android.widget.VideoView
-import androidx.appcompat.widget.AppCompatImageView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import com.viksaa.resources.app.R
+import com.viksaa.resources.app.databinding.FragmentMediaBinding
 
 
-class MediaFragment : Fragment(){
+class MediaFragment : Fragment() {
 
-    private lateinit var mediaViewModel: MediaViewModel
+    private val mediaViewModel: MediaViewModel by viewModels()
+    private lateinit var binding: FragmentMediaBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        mediaViewModel =
-            ViewModelProvider(this).get(MediaViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_media, container, false)
-        setVideo(root)
-        setSound(root)
-        return root
+    ): View {
+        binding = FragmentMediaBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    private fun setVideo(view: View){
-        val videoView = view.findViewById<VideoView>(R.id.video_view)
-        val video = Uri.parse("android.resource://" + requireContext().packageName + "/" + R.raw.video_funny)
-
-        videoView.setMediaController(MediaController(requireContext()))
-
-        videoView.setVideoURI(video)
-        val videoPlay = view.findViewById<AppCompatImageView>(R.id.video_play)
-        videoPlay.setOnClickListener { videoView.start() }
-        val videoStop = view.findViewById<AppCompatImageView>(R.id.video_stop)
-        videoStop.setOnClickListener { videoView.pause() }
-
+    override fun onStart() {
+        super.onStart()
+        setSound()
+        setVideo()
     }
 
-    private fun setSound(view: View){
+    private fun setVideo() {
+        val videoUri =
+            Uri.parse("android.resource://${requireContext().packageName}/${R.raw.video_funny}")
+        binding.apply {
+            videoView.setMediaController(MediaController(requireContext()))
+            videoView.setVideoURI(videoUri)
+            videoPlay.setOnClickListener { videoView.start() }
+            videoStop.setOnClickListener { videoView.pause() }
+        }
+    }
+
+    private fun setSound() {
         val sound = MediaPlayer.create(requireContext(), R.raw.sound_whistle)
-        val soundPlay = view.findViewById<AppCompatImageView>(R.id.sound_play)
-        soundPlay.setOnClickListener { sound.start() }
-        val soundStop = view.findViewById<AppCompatImageView>(R.id.sound_stop)
-        soundStop.setOnClickListener { sound.pause() }
+        binding.apply {
+            soundPlay.setOnClickListener { sound.start() }
+            soundStop.setOnClickListener { sound.pause() }
+        }
     }
 
 

@@ -14,9 +14,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.viksaa.resources.app.R
 
 
-class MediaFragment : Fragment(){
+class MediaFragment : Fragment() {
 
     private lateinit var mediaViewModel: MediaViewModel
+    
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,9 +32,10 @@ class MediaFragment : Fragment(){
         return root
     }
 
-    private fun setVideo(view: View){
+    private fun setVideo(view: View) {
         val videoView = view.findViewById<VideoView>(R.id.video_view)
-        val video = Uri.parse("android.resource://" + requireContext().packageName + "/" + R.raw.video_funny)
+        val video =
+            Uri.parse("android.resource://" + requireContext().packageName + "/" + R.raw.video_funny)
 
         videoView.setMediaController(MediaController(requireContext()))
 
@@ -45,7 +47,7 @@ class MediaFragment : Fragment(){
 
     }
 
-    private fun setSound(view: View){
+    private fun setSound(view: View) {
         val sound = MediaPlayer.create(requireContext(), R.raw.sound_whistle)
         val soundPlay = view.findViewById<AppCompatImageView>(R.id.sound_play)
         soundPlay.setOnClickListener { sound.start() }

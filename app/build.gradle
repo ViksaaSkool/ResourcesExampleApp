@@ -33,6 +33,8 @@ android {
     }
     buildFeatures {
         viewBinding true
+        compose true
+
     }
     dataBinding {
         //noinspection DataBindingWithoutKapt
@@ -46,13 +48,18 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11
     }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.0.1'
+    }
+
 }
 
 dependencies {
 
     //ui-related libraries
     implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
 
     //architecture components libraries
@@ -61,10 +68,18 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
 
+
+    //compose related libraries
+    implementation 'androidx.activity:activity-compose:1.3.1'
+    implementation 'androidx.compose.ui:ui-tooling:1.0.1'
+    implementation 'androidx.compose.material:material:1.0.1'
+
+
     //testing (ui and unit) libraries
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4:1.0.5'
 
     //third party animation library
     implementation "com.airbnb.android:lottie:3.5.0"

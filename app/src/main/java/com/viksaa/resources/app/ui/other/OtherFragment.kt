@@ -5,10 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.compose.material.MaterialTheme
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.viksaa.resources.app.R
+import com.viksaa.resources.app.components.UserCard
 import com.viksaa.resources.app.databinding.FragmentOtherBinding
+import com.viksaa.resources.app.hideKeyboardOnFocusLoss
 import java.util.*
 
 class OtherFragment : Fragment() {
@@ -23,6 +26,8 @@ class OtherFragment : Fragment() {
     ): View {
         binding = FragmentOtherBinding.inflate(inflater, container, false)
         binding.viewModel = otherViewModel
+        binding.root.hideKeyboardOnFocusLoss()
+        initComposableView()
         setButton()
         return binding.root
     }
@@ -38,6 +43,14 @@ class OtherFragment : Fragment() {
                     number
                 )
                 Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun initComposableView() {
+        binding.myComposable.setContent {
+            MaterialTheme {
+                UserCard()
             }
         }
     }

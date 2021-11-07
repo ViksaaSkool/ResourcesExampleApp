@@ -1,5 +1,6 @@
 package com.viksaa.resources.app.ui
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -8,8 +9,8 @@ import android.view.animation.Animation
 import android.view.animation.Animation.AnimationListener
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AppCompatTextView
 import com.viksaa.resources.app.R
+import com.viksaa.resources.app.databinding.ActivitySplashScreenBinding
 
 class SplashScreenActivity : AppCompatActivity() {
 
@@ -17,32 +18,39 @@ class SplashScreenActivity : AppCompatActivity() {
         const val DELAY = 1000L
     }
 
+    private lateinit var binding: ActivitySplashScreenBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash_screen)
+        binding = ActivitySplashScreenBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         animateText()
     }
 
-    private fun animateText(){
-
+    @SuppressLint("ResourceType")
+    private fun animateText() {
         val fadeInAnimation = AnimationUtils.loadAnimation(this, R.animator.fade_in)
         fadeInAnimation.setAnimationListener(object : AnimationListener {
             override fun onAnimationStart(animation: Animation) {}
             override fun onAnimationEnd(animation: Animation) {
                 navigateToMainActivity()
             }
+
             override fun onAnimationRepeat(animation: Animation) {}
         })
-
-        val titleText = findViewById<AppCompatTextView>(R.id.text_title)
-        titleText.animation = fadeInAnimation
-
+        binding.textTitle.animation = fadeInAnimation
     }
 
-    private fun navigateToMainActivity(){
+    private fun navigateToMainActivity() {
         //wait for DELAY time before you navigate to MainActivity
-        Handler(Looper.getMainLooper()).postDelayed({startActivity(Intent(this, MainActivity::class.java))
-            finishAffinity()}, DELAY)
-
+        val intent = Intent(this, MainActivity::class.java)
+        Handler(Looper.getMainLooper()).postDelayed(
+            {
+                startActivity(intent)
+                finishAffinity()
+            }, DELAY
+        )
     }
+
+
 }

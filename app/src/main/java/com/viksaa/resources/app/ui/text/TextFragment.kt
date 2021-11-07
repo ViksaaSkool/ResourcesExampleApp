@@ -1,57 +1,57 @@
 package com.viksaa.resources.app.ui.text
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.viksaa.resources.app.Constants.EN
 import com.viksaa.resources.app.Constants.MK
-import com.viksaa.resources.app.R
+import com.viksaa.resources.app.databinding.FragmentTextBinding
 import com.viksaa.resources.app.ui.text.adapter.FontsRecyclerViewAdapter
 import java.util.*
 
 class TextFragment : Fragment() {
 
     private lateinit var fontsAdapter: FontsRecyclerViewAdapter
-    private lateinit var textViewModel: TextViewModel
+
+    private lateinit var binding: FragmentTextBinding
+    private val textViewModel: TextViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        textViewModel =
-            ViewModelProvider(this).get(TextViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_text, container, false)
-        setFontsList(root)
-        setLanguageIndicator(root)
-        return root
+    ): View {
+        binding = FragmentTextBinding.inflate(inflater, container, false)
+        setFontsList()
+        return binding.root
     }
 
-    private fun setFontsList(view: View){
+    override fun onResume() {
+        super.onResume()
+        invalidateLanguageIndicator()
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private fun setFontsList() {
         fontsAdapter = FontsRecyclerViewAdapter()
-        val fontsRecyclerView = view.findViewById<RecyclerView>(R.id.fonts_recycler_view)
-        val layoutManager = LinearLayoutManager(requireContext().applicationContext)
-        fontsRecyclerView.layoutManager = layoutManager
-        fontsRecyclerView.itemAnimator = DefaultItemAnimator()
-        fontsRecyclerView.adapter = fontsAdapter
+        binding.fontsRecyclerView.apply {
+            layoutManager = LinearLayoutManager(requireContext().applicationContext)
+            itemAnimator = DefaultItemAnimator()
+            adapter = fontsAdapter
+        }
         fontsAdapter.notifyDataSetChanged()
     }
 
-    private fun setLanguageIndicator(view: View){
-        val enText = view.findViewById<AppCompatTextView>(R.id.en_text)
-        val mkText = view.findViewById<AppCompatTextView>(R.id.mk_text)
-        if(Locale.getDefault().language == MK){
-            mkText.isSelected = true
-            enText.isSelected = false
-        }else{
-            mkText.isSelected = false
-            enText.isSelected = true
+    private fun invalidateLanguageIndicator() {
+        binding.apply {
+            mkText.isSelected = Locale.getDefault().language == MK
+            enText.isSelected = Locale.getDefault().language == EN
         }
     }
 }
